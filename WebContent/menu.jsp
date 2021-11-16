@@ -1,11 +1,10 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<nav class="navbar navbar-dark bg-success fixed-top">
+<nav class="navbar navbar-light fixed-top color">
   <div class="container-flex">
-    <a class="navbar-brand position-absolute start-50" href="index.jsp">HEALTH TRACK</a>
-    <button class="navbar-toggler navbar-start" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+    <a class="navbar-brand position-absolute top-50 start-50 translate-middle" href="index.jsp">HEALTH TRACK</a>
+    <button class="navbar-toggler navbar-start ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="offcanvas offcanvas-start bg-success" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas offcanvas-start colorNav" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>

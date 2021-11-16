@@ -1,0 +1,100 @@
+.container {
+	width: 70%;
+	height: 60%;
+	background-color: #2D2D34;
+	margin: 10% 15%;
+	position: fixed;
+	border-radius: 15px;
+	box-shadow: 2px 1px 1px #76DBA7;
+}
+
+/*Foto perfil*/
+.foto-perfil {
+    width: 200px;
+    height: 200px;
+    left: 25%;
+    top: 36%;
+    transform: translate(-75%, -64%);
+    position: fixed;
+}
+
+.foto-perfil img {
+    width: 100%;
+    height: 200px;
+    border-radius: 40px;
+    border: 2px solid #76DBA7;
+    margin-bottom: 10px;
+}
+
+.foto-perfil p {
+    text-align: center;
+    font-size: 24px;
+    color: #76DBA7;
+}
+
+.email > p {
+	color: #76DBA7;
+}
+
+/* Botão */
+.btn {
+    position: fixed;
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -15%);
+    width: 100%;
+    max-width: 235px;
+    color: #E5EAFA;
+    border-color: #E5EAFA;
+    background-color: #2D2D34;
+}
+
+.btn:hover {
+    background-image: linear-gradient(to right ,rgb(248, 3, 3), rgb(141, 31, 184),rgb(23, 23, 255));
+    border: none;
+}
+
+.power {
+    margin-bottom: 5px;
+    max-width: 16px;
+    max-height: 16px;
+}
+
+@media screen and (max-width: 1540px) {
+	.foto-perfil {
+        left: 50%;
+	    top: 35%;
+	    transform: translate(-50%, -65%);
+    }
+}
+
+@media screen and (max-width: 620px) {
+		.container {
+		width: 0%;
+		height: 0%;
+		background-color: white;
+		margin: 0% 0%;
+		position: fixed;
+		border-radius: 0;
+		box-shadow: 0 white;
+		}
+		
+	 .foto-perfil {
+        width: 140px;
+        height: 140px;
+        left: 50%;
+	    top: 30%;
+	    transform: translate(-50%, -70%);
+	    position: fixed;
+    }
+    
+    .foto-perfil img {
+        height: 140px;
+    }
+    
+    .foto-perfil p {
+        font-size: 19px;
+        color: #2D2D34;
+    }
+}
+

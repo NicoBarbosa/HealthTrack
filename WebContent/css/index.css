@@ -1,0 +1,158 @@
+/* BPM container */
+.container_bpm {
+	margin-top: 10%;
+    width: 70%;
+    height: 35%;
+    position: fixed;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -80%);
+}
+
+.bpm {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #2D2D34;
+    border-radius: 3%;
+    text-align: center;
+    box-shadow: 5px 5px 5px black;
+}
+
+p.b89 {
+	padding-top: 6%;
+    font-size: 5em;
+    margin-bottom: 0px;
+    color: #76DBA7;
+}
+
+.bpm > span {
+	font-size: 1.5rem;
+	color: #E5EAFA
+}
+
+/* Sistolica valor */
+.container_sistolicas {
+    margin-top: 10%;
+    width: 30%;
+    height: 10%;
+    position: fixed;
+    left: 35%;
+    top: 40%;
+    text-align: center;
+    transform: translate(-65%, -60%);
+}
+
+.sistolicas {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #2D2D34;
+    border-radius: 3%;
+    box-shadow: 5px 5px 5px black;
+}
+
+p.s12 {
+	padding-top: 3%;
+    margin-top: 20%;
+    font-size: 2rem;
+    margin-bottom: 0px;
+    color: #76DBA7;
+}
+
+.sistolicas > span {
+	color: #E5EAFA;
+}
+
+/* Diastolica valor */
+.container_diastolica {
+    margin-top: 10%;
+    width: 30%;
+    height: 10%;
+    position: fixed;
+    left: 65%;
+    top: 40%;
+    text-align: center;
+    transform: translate(-35%, -60%);
+}
+
+.diastolica {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #2D2D34;
+    border-radius: 3%;
+    box-shadow: 5px 5px 5px black;
+}
+
+p.d9 {
+	padding-top: 3%;
+    margin-top: 20%;
+    font-size: 2rem;
+    margin-bottom: 0px;
+    color: #76DBA7;
+}
+
+.diastolica > span {
+	color: #E5EAFA;
+}
+
+
+/* Mobile*/
+
+@media screen and (max-width: 620px) {
+	/* bpm */
+	.container_bpm {
+		padding: 15% 6% 0%;
+	    width: 390px;
+	    height: 390px;
+	    left: 50%;
+	    top: 38%;
+	    transform: translate(-50%, -62%);
+    }
+	
+	p.b89 {
+		padding-top: 25%;
+	    margin-top: 0%;
+	    font-size: 5em;
+	    margin-bottom: 0px;
+	    color: #76DBA7;
+	}
+	
+	/* Sistolica valor */
+	.container_sistolicas {
+		max-width: 165px;
+	    width: 165px;
+	    height: 190px;
+	    left: 33%;
+	    top: 71%;
+	    transform: translate(-67%, -29%);
+	}
+	
+	p.s12 {
+		padding-top: 25%;
+	    margin-top: 0%;
+	    font-size: 3rem;
+	    margin-bottom: 0px;
+	    color: #76DBA7;
+	}
+	
+	/* Diastolica valor */
+	.container_diastolica {
+	    max-width: 165px;
+	    width: 165px;
+	    height: 190px;
+	    left: 67%;
+	    top: 71%;
+	    transform: translate(-33%, -29%);
+	}
+	
+	p.d9 {
+		padding-top: 25%;
+		margin-top: 0%;
+	    font-size: 3rem;
+	    margin-bottom: 0px;
+	    color: #76DBA7;
+	}
+	
+}

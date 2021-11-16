@@ -4,10 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>IMC</title>
-<%@ include file="header.jsp" %>
-<link rel="stylesheet" href="style.css">
+	<meta charset="ISO-8859-1">
+	<title>IMC</title>
+	<%@ include file="header.jsp" %>
 </head>
 <body>
 <%@ include file="menu.jsp" %>

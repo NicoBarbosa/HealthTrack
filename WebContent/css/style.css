@@ -1,0 +1,40 @@
+* {
+	padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+}
+
+.offcanvas-title {
+	color: white;
+}
+
+nav.color {
+	background-color: #76DBA7;
+}
+
+div.colorNav {
+	background-color: #76DBA7;
+}
+
+
+/* Mizack */
+@media (max-width: 575.98px) {
+	#apresentacao{
+		width: auto;
+		overflow-x: scroll;
+	    white-space: nowrap;
+	}
+}
+
+svg{
+	width:30px;
+	height: 22px;
+	display:inline;
+}
+svg:hover path{
+	fill: #198754;
+}
