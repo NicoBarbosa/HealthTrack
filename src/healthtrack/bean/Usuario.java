@@ -8,7 +8,7 @@ public class Usuario {
     private String email;
     private String senha; 
     private Calendar dtNascimento;
-    private char sexo;
+    private String sexo;
     private double altura;
     private Calendar dtInclusao;
 
@@ -22,7 +22,7 @@ public class Usuario {
         String email,
         String senha, 
         Calendar dtNascimento,
-        char sexo,
+        String sexo,
         double altura,
         Calendar dtInclusao
     ) {
@@ -76,11 +76,11 @@ public class Usuario {
 		this.dtNascimento = dtNascimento;
 	}
 
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 
