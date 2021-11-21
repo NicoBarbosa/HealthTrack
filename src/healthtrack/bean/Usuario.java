@@ -1,6 +1,7 @@
 package healthtrack.bean;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class Usuario {
     private int cd_usuario;
@@ -10,7 +11,7 @@ public class Usuario {
     private Calendar dtNascimento;
     private String sexo;
     private double altura;
-    private Calendar dtInclusao;
+    private Date dtInclusao;
 
     public Usuario() { 
     	super(); 
@@ -24,8 +25,9 @@ public class Usuario {
         Calendar dtNascimento,
         String sexo,
         double altura,
-        Calendar dtInclusao
+        Date dtInclusao
     ) {
+    	super();
         this.cd_usuario = cd_usuario;
         this.nome = nome;
         this.email = email;
@@ -92,11 +94,11 @@ public class Usuario {
 		this.altura = altura;
 	}
 
-	public Calendar getDtInclusao() {
+	public Date getDtInclusao() {
 		return dtInclusao;
 	}
 
-	public void setDtInclusao(Calendar dtInclusao) {
+	public void setDtInclusao(Date dtInclusao) {
 		this.dtInclusao = dtInclusao;
 	}
 

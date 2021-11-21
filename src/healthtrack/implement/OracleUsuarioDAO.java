@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import healthtrack.bean.Usuario;
@@ -131,11 +132,9 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 		        dtNascimento.setTimeInMillis(dtNasc.getTime());
 		        String sexo = rs.getString("DS_SEXO");
 		        double altura = rs.getDouble("VL_ALTURA");
-		        java.sql.Date dtInc = rs.getDate("DT_NASCIMENTO");
-		        Calendar dtInclusao = Calendar.getInstance();
-		        dtInclusao.setTimeInMillis(dtInc.getTime());
+		        Date dtInclusao = rs.getDate("DT_INCLUSAO");
 		        
-		        usuario = new Usuario(codigo, sexo, sexo, sexo, dtInclusao, sexo, codigo, dtInclusao);
+		        usuario = new Usuario(codigo, nome, email, senha, dtNascimento, sexo, altura, dtInclusao);
 			}
 			
 		} catch (SQLException e) {
@@ -172,11 +171,9 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 		        dtNascimento.setTimeInMillis(dtNasc.getTime());
 		        String sexo = rs.getString("DS_SEXO");
 		        double altura = rs.getDouble("VL_ALTURA");
-		        java.sql.Date dtInc = rs.getDate("DT_NASCIMENTO");
-		        Calendar dtInclusao = Calendar.getInstance();
-		        dtInclusao.setTimeInMillis(dtInc.getTime());
+		        Date dtInclusao = rs.getDate("DT_INCLUSAO");
 		        
-		        Usuario usuario = new Usuario(codigo, sexo, sexo, sexo, dtInclusao, sexo, codigo, dtInclusao);
+		        Usuario usuario = new Usuario(codigo, nome, email, senha, dtNascimento, sexo, altura, dtInclusao);
 		        lista.add(usuario);
 		        
 			}
