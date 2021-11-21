@@ -5,7 +5,7 @@ import healthtrack.implement.OracleUsuarioDAO;
 
 public class DAOFactory {
 	
-	public static UsuarioDAO getUsuarioDAo() {
+	public static UsuarioDAO getUsuarioDAO() {
 		return new OracleUsuarioDAO();
 	}
 }

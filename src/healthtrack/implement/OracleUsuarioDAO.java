@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import healthtrack.bean.Usuario;
@@ -22,8 +21,8 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			conexao = ConnectionManager.getInstance().getConnection();
-			String sql = "INSERT INTO T_HTK_USER (CD_USUARIO, NM_USUARIO, DS_EMAIL, DS_SENHA, DT_NASCIMENTO, DS_SEXO, VL_ALTURA, DT_INCLUSAO) VALUES (SQ_TB_USUARIO.NEXTVAL, ?,?,?,?,?,?,?)";
+			conexao = ConnectionManager.getConnection();
+			String sql = "INSERT INTO T_HTK_USER (CD_USUARIO, NM_USUARIO, DS_EMAIL, DS_SENHA, DT_NASCIMENTO, DS_SEXO, VL_ALTURA, DT_INCLUSAO) VALUES (SQ_USER.NEXTVAL, ?,?,?,?,?,?,?)";
 			
 			stmt = conexao.prepareStatement(sql);
 			stmt.setString(1, usuario.getNome());
@@ -33,9 +32,10 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 			stmt.setDate(4, dtNascimento);
 			stmt.setString(5, usuario.getSexo());
 			stmt.setDouble(6, usuario.getAltura());
-			java.sql.Date data = new java.sql.Date(usuario.getDtNascimento().getTimeInMillis());
+			java.sql.Date data = new java.sql.Date(usuario.getDtInclusao().getTimeInMillis());
 			stmt.setDate(7, data);
 			
+			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new DBException("Erro ao cadastrar");
@@ -55,7 +55,7 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			conexao = ConnectionManager.getInstance().getConnection();
+			conexao = ConnectionManager.getConnection();
 			String sql = "UPDATE INTO T_HTK_USER SET NM_USUARIO = ?, DS_EMAIL = ?, DS_SENHA = ?, DT_NASCIMENTO = ?, DS_SEXO = ?, VL_ALTURA = ?, DT_INCLUSAO = ? WHERE CD_USUARIO = ?";
 			stmt = conexao.prepareStatement(sql);
 			
@@ -66,7 +66,7 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 			stmt.setDate(4, dtNascimento);
 			stmt.setString(5, usuario.getSexo());
 			stmt.setDouble(6, usuario.getAltura());
-			java.sql.Date data = new java.sql.Date(usuario.getDtNascimento().getTimeInMillis());
+			java.sql.Date data = new java.sql.Date(usuario.getDtInclusao().getTimeInMillis());
 			stmt.setDate(7, data);
 			
 		} catch (SQLException e) {
@@ -88,7 +88,7 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			conexao = ConnectionManager.getInstance().getConnection();
+			conexao = ConnectionManager.getConnection();
 			String sql = "DELETE FROM T_HTK_USER WHERE CD_USUARIO = ?";
 			
 			stmt = conexao.prepareStatement(sql);
@@ -115,7 +115,7 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 		ResultSet rs = null;
 		
 		try {
-			conexao = ConnectionManager.getInstance().getConnection();
+			conexao = ConnectionManager.getConnection();
 			String sql = "SELECT * FROM T_HTK_USER WHERE CD_USUARIO = ?";
 			
 			stmt = conexao.prepareStatement(sql);
@@ -132,7 +132,10 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 		        dtNascimento.setTimeInMillis(dtNasc.getTime());
 		        String sexo = rs.getString("DS_SEXO");
 		        double altura = rs.getDouble("VL_ALTURA");
-		        Date dtInclusao = rs.getDate("DT_INCLUSAO");
+		        java.sql.Date dtInclu = rs.getDate("DT_INCLUSAO");
+		        Calendar dtInclusao = Calendar.getInstance();
+		        dtInclusao.setTimeInMillis(dtInclu.getTime());
+		        
 		        
 		        usuario = new Usuario(codigo, nome, email, senha, dtNascimento, sexo, altura, dtInclusao);
 			}
@@ -157,7 +160,7 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 		ResultSet rs = null;
 		
 		try {
-			conexao = ConnectionManager.getInstance().getConnection();
+			conexao = ConnectionManager.getConnection();
 			stmt = conexao.prepareStatement("SELECT * FROM T_HTK_USER");
 			rs = stmt.executeQuery();
 			
@@ -171,7 +174,9 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 		        dtNascimento.setTimeInMillis(dtNasc.getTime());
 		        String sexo = rs.getString("DS_SEXO");
 		        double altura = rs.getDouble("VL_ALTURA");
-		        Date dtInclusao = rs.getDate("DT_INCLUSAO");
+		        java.sql.Date dtInclu = rs.getDate("DT_INCLUSAO");
+		        Calendar dtInclusao = Calendar.getInstance();
+		        dtInclusao.setTimeInMillis(dtInclu.getTime());
 		        
 		        Usuario usuario = new Usuario(codigo, nome, email, senha, dtNascimento, sexo, altura, dtInclusao);
 		        lista.add(usuario);

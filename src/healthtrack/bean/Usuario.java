@@ -1,51 +1,68 @@
 package healthtrack.bean;
 
 import java.util.Calendar;
-import java.util.Date;
 
-public class Usuario {
-    private int cd_usuario;
+public class Usuario extends BaseFuncoes{
+	
     private String nome;
     private String email;
     private String senha; 
     private Calendar dtNascimento;
     private String sexo;
     private double altura;
-    private Date dtInclusao;
+    private Calendar dtInclusao;
 
     public Usuario() { 
     	super(); 
 	}
 
     public Usuario(
-        int cd_usuario,
         String nome,
         String email,
         String senha, 
         Calendar dtNascimento,
         String sexo,
         double altura,
-        Date dtInclusao
+        Calendar dtInclusao
     ) {
     	super();
-        this.cd_usuario = cd_usuario;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.dtNascimento = dtNascimento;
-        this.sexo = sexo;
-        this.altura = altura;
-        this.dtInclusao = dtInclusao;
+        this.setNome(nome);
+        this.setEmail(email);
+        this.setSenha(senha);
+        this.setDtNascimento(dtNascimento);
+        this.setSexo(sexo);
+        this.setAltura(altura);
+        this.setDtInclusao(dtInclusao);
     }
-
-	public int getCd_usuario() {
-		return cd_usuario;
+    
+    public Usuario(
+            int cd_usuario,
+            String nome,
+            String email,
+            String senha, 
+            Calendar dtNascimento,
+            String sexo,
+            double altura,
+            Calendar dtInclusao
+        ) {
+        	super();
+        	this.setCodigo(cd_usuario);
+        	 this.setNome(nome);
+             this.setEmail(email);
+             this.setSenha(senha);
+             this.setDtNascimento(dtNascimento);
+             this.setSexo(sexo);
+             this.setAltura(altura);
+             this.setDtInclusao(dtInclusao);
+        }
+    
+    public void setCodigo(int cd_usuario) {
+		super.setCodigo(cd_usuario);
 	}
-
-	public void setCd_usuario(int cd_usuario) {
-		this.cd_usuario = cd_usuario;
+	public int getCodigo() {
+		return super.getCodigo();
 	}
-
+    
 	public String getNome() {
 		return nome;
 	}
@@ -94,11 +111,11 @@ public class Usuario {
 		this.altura = altura;
 	}
 
-	public Date getDtInclusao() {
+	public Calendar getDtInclusao() {
 		return dtInclusao;
 	}
 
-	public void setDtInclusao(Date dtInclusao) {
+	public void setDtInclusao(Calendar dtInclusao) {
 		this.dtInclusao = dtInclusao;
 	}
 
