@@ -152,6 +152,51 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 		}
 		return usuario;
 	}
+	
+	@Override
+	public Usuario buscarPorEmail(String busca_email) {
+		Usuario usuario = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conexao = ConnectionManager.getConnection();
+			String sql = "SELECT * FROM T_HTK_USER WHERE DS_EMAIL = ?";
+			
+			stmt = conexao.prepareStatement(sql);
+			stmt.setString(1, busca_email);
+			rs = stmt.executeQuery();
+			
+			if(rs.next()) {
+				int codigo = rs.getInt("CD_USUARIO");
+		        String nome = rs.getString("NM_USUARIO");
+		        String email = rs.getString("DS_EMAIL");
+		        String senha = rs.getString("DS_SENHA"); 
+		        java.sql.Date dtNasc = rs.getDate("DT_NASCIMENTO");
+		        Calendar dtNascimento = Calendar.getInstance();
+		        dtNascimento.setTimeInMillis(dtNasc.getTime());
+		        String sexo = rs.getString("DS_SEXO");
+		        double altura = rs.getDouble("VL_ALTURA");
+		        java.sql.Date dtInclu = rs.getDate("DT_INCLUSAO");
+		        Calendar dtInclusao = Calendar.getInstance();
+		        dtInclusao.setTimeInMillis(dtInclu.getTime());
+		        
+		        
+		        usuario = new Usuario(codigo, nome, email, senha, dtNascimento, sexo, altura, dtInclusao);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+				conexao.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return usuario;
+	}
 
 	@Override
 	public List<Usuario> listar() {

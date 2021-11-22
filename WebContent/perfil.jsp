@@ -2,7 +2,7 @@
 
 <body>
   <%@ include file="menu.jsp" %>
-  <div class="container">
+  <div class="container container_perfil">
     <div class="foto-perfil">
       <img src="img/tanjiro.jpg" alt="Tanjiro">
       <p>Tanjiro Kamado</p>

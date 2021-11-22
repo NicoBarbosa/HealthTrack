@@ -1,7 +1,9 @@
 package healthtrack.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +19,7 @@ import healthtrack.factory.DAOFactory;
 /**
  * Servlet implementation class UsuarioServlet
  */
-@WebServlet("/UsuarioServlet")
+@WebServlet("/usuario")
 public class UsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -33,8 +35,13 @@ public class UsuarioServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		/*List<Usuario> lista = dao.listar();
+		request.setAttribute("usuarios", lista);
+		request.getRequestDispatcher("usuarios.jsp").forward(request, response);*/
+		
+		int codigo = Integer.parseInt(request.getParameter("cd_usuario"));
+		Usuario usuario = dao.buscar(codigo);
+		request.getRequestDispatcher("perfil.jsp").forward(request, response);
 	}
 
 	/**
@@ -45,12 +52,21 @@ public class UsuarioServlet extends HttpServlet {
 			String nome = request.getParameter("nome");
 			String email = request.getParameter("email");
 			String senha = request.getParameter("senha");
+			String strDate = request.getParameter("dtNascimento");
+		    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		    Calendar dtNascimento = Calendar.getInstance();     
+		    dtNascimento.setTime(sdf.parse(strDate));
+			String sexo = request.getParameter("sexo");
+			double altura = Double.parseDouble(request.getParameter("altura"));
 			
 			Usuario usuario = new Usuario();
 			
 			usuario.setNome(nome);
 			usuario.setEmail(email);
 			usuario.setSenha(senha);
+			usuario.setDtNascimento(dtNascimento);
+			usuario.setSexo(sexo);
+			usuario.setAltura(altura);
 			
 			dao.cadastrar(usuario);
 			request.setAttribute("msg", "Usuário cadastrado");
