@@ -2,9 +2,13 @@ package healthtrack.factory;
 
 import healthtrack.dao.AlimentoDAO;
 import healthtrack.dao.AtvFisicaDAO;
+import healthtrack.dao.ImcDAO;
+import healthtrack.dao.PesoDAO;
 import healthtrack.dao.UsuarioDAO;
 import healthtrack.implement.OracleAlimentoDAO;
 import healthtrack.implement.OracleAtvFisicaDAO;
+import healthtrack.implement.OracleImcDAO;
+import healthtrack.implement.OraclePesoDAO;
 import healthtrack.implement.OracleUsuarioDAO;
 
 public class DAOFactory {
@@ -20,5 +24,13 @@ public class DAOFactory {
 	//Nicolas
 	public static AtvFisicaDAO getAtvFisicaDAO() {
 		return new OracleAtvFisicaDAO();
+	}
+	
+	//Amanda
+	public static PesoDAO getPesoDAO() {
+		return new OraclePesoDAO();
+	}
+	public static ImcDAO getImcDAO() {
+		return new OracleImcDAO();
 	}
 }
