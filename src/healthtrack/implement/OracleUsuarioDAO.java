@@ -21,7 +21,7 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			conexao = ConnectionManager.getConnection();
+			conexao = ConnectionManager.getConnection(); 
 			String sql = "INSERT INTO T_HTK_USER (CD_USUARIO, NM_USUARIO, DS_EMAIL, DS_SENHA, DT_NASCIMENTO, DS_SEXO, VL_ALTURA, DT_INCLUSAO) VALUES (SQ_USER.NEXTVAL, ?,?,?,?,?,?,?)";
 			
 			stmt = conexao.prepareStatement(sql);
