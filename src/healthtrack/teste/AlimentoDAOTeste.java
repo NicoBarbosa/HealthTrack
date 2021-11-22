@@ -14,15 +14,15 @@ public class AlimentoDAOTeste {
 		
 		Alimento alimento = new Alimento();
 		
-		alimento.setChaveUser(0);
-		alimento.setAlimento("banana");
+		alimento.setChaveUser(1);
+		alimento.setAlimento("Banana");
 		alimento.setCaloria(20);
 		alimento.setQuantidade(2);
 		alimento.setData(Calendar.getInstance());
 		
 		try {
 			dao.cadastrar(alimento);
-			System.out.println("Usuário Cadastrado");
+			System.out.println("Alimento Cadastrado");
 		} catch(DBException e) {
 			e.printStackTrace();
 		}

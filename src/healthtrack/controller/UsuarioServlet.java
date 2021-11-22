@@ -1,7 +1,6 @@
 package healthtrack.controller;
 
 import java.io.IOException;
-import java.util.Calendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

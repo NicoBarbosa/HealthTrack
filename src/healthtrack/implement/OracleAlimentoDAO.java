@@ -21,7 +21,7 @@ public class OracleAlimentoDAO implements AlimentoDAO {
 		
 		try {
 			conexao = ConnectionManager.getConnection();
-			String sql = "INSERT INTO T_HTK_ALIMENTO (CD_ALIMENTO, T_HTK_USER_CD_USUARIO, DS_TIPO, QT_CALORIA, QT_INGERIDA, DT_INGERIDO) VALUES (SQ_USER.NEXTVAL, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO T_HTK_ALIMENTO (CD_ALIMENTO, T_HTK_USER_CD_USUARIO, DS_TIPO, QT_CALORIA, QT_INGERIDA, DT_INGERIDO) VALUES (SQ_ALIMENTO.NEXTVAL, ?, ?, ?, ?, ?)";
 			stmt = conexao.prepareStatement(sql);
 			stmt.setInt(1, alimento.getChaveUser());
 			stmt.setString(2, alimento.getAlimento());
