@@ -56,7 +56,12 @@ public class Usuario extends BaseFuncoes{
              this.setDtInclusao(dtInclusao);
         }
     
-    public void setCodigo(int cd_usuario) {
+    public Usuario(String email2, String senha2) {
+    	this.setEmail(email2);
+    	this.setSenha(senha2);
+	}
+
+	public void setCodigo(int cd_usuario) {
 		super.setCodigo(cd_usuario);
 	}
 	public int getCodigo() {

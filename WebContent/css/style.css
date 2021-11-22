@@ -20,6 +20,17 @@ div.colorNav {
 	background-color: #76DBA7;
 }
 
+/* Buttons */
+.btn-success {
+	background-color: #76DBA7 !important;
+	border-color: #76DBA7 !important;
+}
+
+.btn:hover {
+    background-image: linear-gradient(to right ,rgb(248, 3, 3), rgb(141, 31, 184),rgb(23, 23, 255));
+    border: 1px solid #76DBA7;
+}
+
 
 
 /* Mizack */

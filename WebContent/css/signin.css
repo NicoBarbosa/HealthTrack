@@ -26,6 +26,15 @@ body {
   z-index: 2;
 }
 
+.form-floating>label{
+  padding-left: 20px !important;
+}
+
+.form-floating>label[for="nome"]{
+  padding-left: -4px !important;
+}
+
+
 .form-signin input[type="email"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;

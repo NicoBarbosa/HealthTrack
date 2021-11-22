@@ -1,5 +1,5 @@
 package healthtrack.implement;
-/*
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +20,7 @@ public class OraclePerfilDAO implements PerfilDAO {
 		
 		try {
 			conexao = ConnectionManager.getConnection();
-			String sql = "BEGIN TRANSACTION UPDATE INTO T_HTK_USER SET NM_USUARIO = ?, DS_EMAIL = ?, DT_NASCIMENTO = ?, DS_SEXO = ?, VL_ALTURA = ?, DT_INCLUSAO = ? WHERE CD_USUARIO = ? UPDATE INTO T_HTK_PESO SET VL_PESO = ? WHERE T_HTK_USER = ? UPDATE INTO T_HTK_ATIV_FIS SET DS_TIPO_ATIVIDADE = ?, DS_TEMPO_DATA = ? VL_CALORIAS = ? WHERE T_HTK_USER = ? COMMIT";
+			String sql = "UPDATE INTO T_HTK_USER SET NM_USUARIO = ?, DS_EMAIL = ?, DT_NASCIMENTO = ?, DS_SEXO = ?, VL_ALTURA = ?, DT_INCLUSAO = ? WHERE CD_USUARIO = ? ";
 			stmt = conexao.prepareStatement(sql);
 			
 			stmt.setString(1, perfil.getNome());
@@ -30,12 +30,9 @@ public class OraclePerfilDAO implements PerfilDAO {
 			stmt.setString(4, perfil.getSexo());
 			stmt.setDouble(5, perfil.getAltura());
 			java.sql.Date dataInclusao = new java.sql.Date(perfil.getDtInclusao().getTimeInMillis());
-			stmt.setDate(6, perfil.getDtInclusao());
-		    stmt.setDouble peso = (7, perfil.getPeso());
-		    stmt.setString tipoAtividade = (8, perfil.getTipoAtividade()); 
-		    stmt.setDouble calorias = (9, perfil.getCalorias());
-			java.sql.Date tempo = new java.sql.Date(perfil.getTempo().getTimeInMillis());
-			stmt.setDate(10, tempo);
+			stmt.setDate(6, dataInclusao);
+		    stmt.setInt(7, perfil.getCdUsuario());
+		    
 
 			
 		} catch (SQLException e) {
@@ -78,9 +75,7 @@ public class OraclePerfilDAO implements PerfilDAO {
 		        java.sql.Date dtInclu = rs.getDate("DT_INCLUSAO");
 		        Calendar dtInclusao = Calendar.getInstance();
 		        dtInclusao.setTimeInMillis(dtInclu.getTime());
-				int codigo = rs.getInt("CD_PESO");
 		        double peso = rs.getDouble("VL_PESO");
-				int codigoAf = rs.getInt("CD_ATIVIDADE");
 		        String tipoAtividade = rs.getString("DS_TIPO_ATIVIDADE"); 
 		        int calorias = rs.getInt("VL_CALORIAS");
 		        java.sql.Date tmp = rs.getDate("DS_TEMPO_DATA");
@@ -100,8 +95,7 @@ public class OraclePerfilDAO implements PerfilDAO {
 				e.printStackTrace();
 			}
 		}
-		return usuario;
+		return perfil;
 	}
 
 }
-*/
