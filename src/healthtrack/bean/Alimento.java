@@ -9,17 +9,23 @@ public class Alimento extends BaseFuncoes {
 	private int qt_ingerida;
 	
 	public Alimento() {}
-
-	public Alimento(int codigoAlimento,int chave_user,String alimento,double qt_caloria,int qt_ingerida,Calendar data){
-		this.setCodigo(codigoAlimento);
-		this.setChaveUser(chave_user);
-		this.setAlimento(alimento);
-		this.setCaloria(qt_caloria);
-		this.setQuantidade(qt_ingerida);
+	public Alimento(int codigo_user, String tipo, double caloria, int quantidade, Calendar data) {
+		this.setChaveUser(codigo_user);
+		this.setAlimento(tipo);
+		this.setCaloria(caloria);
+		this.setQuantidade(quantidade);
 		this.setData(data);
-		
 	}
-	
+
+	public Alimento(int codigo, int codigo_user, String tipo, double caloria, int quantidade, Calendar data) {
+		this.setCodigo(codigo);
+		this.setChaveUser(codigo_user);
+		this.setAlimento(tipo);
+		this.setCaloria(caloria);
+		this.setQuantidade(quantidade);
+		this.setData(data);
+	}
+
 	public void setChaveUser(int chave_user) {
 		this.chave_user = chave_user;
 	}
@@ -61,4 +67,5 @@ public class Alimento extends BaseFuncoes {
 	public Calendar getData() {
 		return super.getData();
 	}
+	
 }

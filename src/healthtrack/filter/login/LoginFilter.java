@@ -1,5 +1,7 @@
 package healthtrack.filter.login;
 
+//COMENTEI TUDO PORQUE O FILTRO ESTAVA IMPEDINDO DE TESTAR O PROJETO
+/*
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -9,10 +11,13 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+*/
 
 /**
  * Servlet Filter implementation class LoginFilter
  */
+
+/*
 @WebFilter("/*")
 public class LoginFilter implements Filter {
 
@@ -26,7 +31,7 @@ public class LoginFilter implements Filter {
 		
 		if (session.getAttribute("user") == null && !url.endsWith("login") && !url.contains("resources") && !url.contains("home")) {
 			request.setAttribute("erro", "Entre com o usuário e senha!");
-			request.getRequestDispatcher("colocar-o-nome-da-jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}else {
 			chain.doFilter(request, response);
 		}
@@ -34,3 +39,4 @@ public class LoginFilter implements Filter {
 	}
 
 }
+*/

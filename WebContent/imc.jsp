@@ -1,58 +1,33 @@
 <%@ include file="header.jsp" %>
+</head>
 
 <body>
   <%@ include file="menu.jsp" %>
   <div class="mt-5">&nbsp; </div>
-  <div id="apresentacao" class="container text-center mt-1">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">DATA</th>
-          <th scope="col">PESO (KG)</th>
-          <th scope="col">AÇÕES</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>19/12/2020</td>
-          <td>70 kg</td>
-          <td>
-            <div class="col">
-              <div class="row">
-                <div class="col-6 d-flex justify-content-end">
-                  <div class="col-2 icone_pg ">
-                    <a href="">
-                      <%@ include file="../img/lapis.jsp" %>
-                    </a>
-
-                  </div>
-                </div>
-                <div class="col-6 ">
-                  <div class="col-2 icone_pg ">
-                    <a href="">
-                      <%@ include file="../img/lixo.jsp" %>
-                    </a>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
   <div class="container mt-2">
     <div class="col-12 text-center mb-2">
       <label>Cadastrar novo registro</label>
     </div>
+    
+    <c:if test="${not empty msg }">
+	<div class="alert alert-success">${msg}</div>
+    </c:if>
+    <c:if test="${not empty erro }">
+	    <div class="alert alert-danger">${erro}</div>
+    </c:if>
 
     <form method="post" action="peso.jsp">
       <div class="row">
         <div class="col">
+        <label>Peso:</label>
           <input type="number" class="form-control" placeholder="Peso" aria-label="Peso" step="0.1" min=0>
         </div>
         <div class="col">
+        <label>Altura:</label>
+          <input type="number" class="form-control" placeholder="Altura" aria-label="Altura" step="0.1" min=0>
+        </div>
+        <div class="col">
+        <label>Data:</label>
           <input type="date" class="form-control" placeholder="Last name" aria-label="Data pesagem">
         </div>
         <div class="col-12 text-center mt-2">
