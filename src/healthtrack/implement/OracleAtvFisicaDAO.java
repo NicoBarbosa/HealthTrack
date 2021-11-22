@@ -29,7 +29,6 @@ public class OracleAtvFisicaDAO implements AtvFisicaDAO {
     	    rs = stmt.executeQuery();
     	    
     	    while (rs.next()) {
-        	    int codigo = rs.getInt("CD_ATIVIDADE");
         	    String tipoAtv = rs.getString("DS_TIPO_ATIVIDADE");
         	    java.sql.Date data = rs.getDate("DS_TEMPO_DATA");
     	        int vlCalorias = rs.getInt("VL_CALORIAS");
@@ -37,7 +36,7 @@ public class OracleAtvFisicaDAO implements AtvFisicaDAO {
     	        Calendar tempo = Calendar.getInstance();
     	        tempo.setTimeInMillis(data.getTime());
     	        
-    	        AtividadeFisica atividadeFisica = new AtividadeFisica(codigo, tipoAtv, tempo, vlCalorias);
+    	        AtividadeFisica atividadeFisica = new AtividadeFisica(tipoAtv, tempo, vlCalorias);
     	        
     	        listar.add(atividadeFisica);
     	    }
@@ -68,7 +67,7 @@ public class OracleAtvFisicaDAO implements AtvFisicaDAO {
 			String sql = "INSERT INTO T_HTK_ATIV_FIS(CD_ATIVIDADE, T_HTK_USER_CD_USUARIO, DS_TIPO_ATIVIDADE, DS_TEMPO_DATA, VL_CALORIAS) VALUES (SQ_ATV_FIS.NEXTVAL, ?, ?, ?, ?)";
 			stmt = conexao.prepareStatement(sql);
 			
-			stmt.setInt(1, atvFis.getCodigo()); //Dar atenção a essa linha
+			stmt.setInt(1, 1); //Dar atenção a essa linha
             stmt.setString(2, atvFis.getTipoAtividade());
             java.sql.Date data = new java.sql.Date(atvFis.getTempo().getTimeInMillis());
             stmt.setDate(3, data);
