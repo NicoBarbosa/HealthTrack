@@ -6,15 +6,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import healthtrack.bean.Usuario;
 import healthtrack.dao.UsuarioDAO;
 import healthtrack.exception.DBException;
+import healthtrack.factory.DAOFactory;
 
 /**
  * Servlet implementation class Autenticar
  */
-@WebServlet("/autenticar")
+@WebServlet("/login")
 public class AutenticarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -25,7 +27,7 @@ public class AutenticarServlet extends HttpServlet {
      */
     public AutenticarServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        dao = DAOFactory.getUsuarioDAO();
     }
 
 	/**
@@ -40,24 +42,19 @@ public class AutenticarServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			String email = request.getParameter("email");
-	        String senha = request.getParameter("senha");
-			
-			int codigo = Integer.parseInt(request.getParameter("cd_usuario"));
-			Usuario usuario = dao.buscarPorEmail(email);
+		String email = request.getParameter("email");
+        String senha = request.getParameter("senha");
 		
-			if(email.equals(usuario.getEmail()) && senha.equals(usuario.getSenha())) {
-				request.getSession().setAttribute("usuario", usuario);
-				request.setAttribute("msg",  "Login realizado com sucesso");
-			}else {
-				request.setAttribute("msg",  "Não foi possível realizar o login");
-			}
-		} catch(Exception e) {
-			e.printStackTrace();
-			request.setAttribute("erro",  "Por favor, valide os dados");
+		Usuario usuario = new Usuario(email, senha);
+		
+		if(dao.validarUsuario(usuario)) {
+			HttpSession session = request.getSession();
+			session.setAttribute("user", email);
+		}else {
+			request.setAttribute("erro", "Usuário e/ou senha inválidos");
 		}
-		request.getRequestDispatcher("login.jsp").forward(request, response);
+		
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 }

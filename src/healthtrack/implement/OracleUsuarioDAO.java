@@ -240,5 +240,34 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 		}
 		return lista;
 	}
+	
+	@Override
+	public boolean validarUsuario(Usuario usuario) {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conexao = ConnectionManager.getConnection();
+			stmt = conexao.prepareStatement("SELECT * FROM T_HTK_USER DS_EMAIL = ? AND DS_SENHA = ?");
+			stmt.setString(1, usuario.getEmail());
+			stmt.setString(2, usuario.getSenha());
+			rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+				conexao.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return false;
+	}
 
 }

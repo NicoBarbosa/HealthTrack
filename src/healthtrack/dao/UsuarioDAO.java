@@ -12,4 +12,5 @@ public interface UsuarioDAO {
 	Usuario buscar(int cd_usuario);
 	Usuario buscarPorEmail(String email);
 	List<Usuario> listar();
+	boolean validarUsuario(Usuario usuario);
 }
