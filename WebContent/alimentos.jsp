@@ -11,18 +11,18 @@
           <th scope="col">TIPO ALIMENTO</th>
           <th scope="col">QUANTIDADE</th>
           <th scope="col">CALORIAS</th>
-          <th scope="col">AÇÕES</th>
+          <th scope="col"></th>
         </tr>
       </thead>
-      <c:forEach items="$alimento" var="p">
+      <c:forEach items="${alimento}" var="p">
 	      <tbody>
 	        <tr>
 	          <td>
-	          	<fmt:formatDate value="%{p.data.time}" pattern="dd/MM/yyyy"/>
+	          	<fmt:formatDate value="${p.data.time}" pattern="dd/MM/yyyy"/>
 	          </td>
-	          <td>%{p.tipo}</td>
-	          <td>%{p.quantidade}</td>
-	          <td>%{p.caloria}</td>
+	          <td>${p.tipo}</td>
+	          <td>${p.quantidade}</td>
+	          <td>${p.caloria}</td>
 	          <td>
 	            <div class="col">
 	              <div class="row">
@@ -62,23 +62,19 @@
     <form method="post" action="alimento">
       <div class="row">
         <div class="col-12 mb-2">
-          <input id="tipo-ali" type="text" class="form-control" placeholder="Tipo de alimento" aria-label="alimento" step="0.1" min=0>
+          <input name="tipo-ali" type="text" class="form-control" placeholder="Tipo de alimento" aria-label="alimento" step="0.1" min=0>
         </div>
         <div class="col">
           <label for="quantidade-ali">Quantidade</label>
-          <input id="quantidade-ali" type="number" class="form-control" placeholder="" aria-label="quantidade" step="1" min=0>
+          <input name="quantidade-ali" type="number" class="form-control" placeholder="" aria-label="quantidade" step="1" min=0>
         </div>
         <div class="col">
           <label for="caloria-ali">Calorias</label>
-          <input id="caloria-ali" type="number" class="form-control" placeholder="unit" aria-label="calorias" step="0.1" min=0>
-        </div>
-        <div class="col">
-          <label for="data-ali">Data Atividade</label>
-          <input id="data-ali" type="date" class="form-control" placeholder="Last name" aria-label="Data pesagem">
+          <input name="caloria-ali" type="number" class="form-control" placeholder="unit" aria-label="calorias" step="0.1" min=0>
         </div>
 
         <div class="col-12 text-center mt-2">
-          <button id="botao_peso" type="submit" class="btn btn-success  btn-block">Cadastrar</button>
+          <button name="acao" value="cadastrar" id="botao_peso" type="submit" class="btn btn-success  btn-block">Cadastrar</button>
         </div>
       </div>
     </form>
@@ -90,7 +86,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Confirm��o</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

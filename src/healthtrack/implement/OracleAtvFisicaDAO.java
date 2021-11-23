@@ -88,5 +88,4 @@ public class OracleAtvFisicaDAO implements AtvFisicaDAO {
 		
 	}
 	
-	
 }

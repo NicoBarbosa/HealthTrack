@@ -2,7 +2,8 @@
 
 <body>
   <%@ include file="menu.jsp" %>
-  
+  	<br>
+  	<br>
   	<c:if test="${not empty msg }">
       	<div class="alert alert-success">${msg}</div>
     </c:if>
@@ -13,11 +14,8 @@
   <div class="mt-5">&nbsp; </div>
  
   <div class="container mt-2">
-    <div class="col-12 text-center mb-2">
-      <label>Cadastrar novo registro</label>
-    </div>
 
-    <form method="post" action="atividades">
+    <form method="post" action="exercicios">
     
       <h1 class="h3 mb-3 fw-normal">Cadastrar Atividade Física</h1>
       <div class="row">
@@ -32,7 +30,7 @@
         </div>
         
         <div class="col-12 text-center mt-2">
-          <button id="botao_peso" type="submit" class="btn btn-success  btn-block">Cadastrar</button>
+          <button id="botao_peso" value="cadastrar" type="submit" class="btn btn-success  btn-block">Cadastrar</button>
         </div>
       </div>
     </form>
@@ -42,7 +40,6 @@
 				<th>Nome Atividade</th>
 				<th>Calorias</th>
 				<th>Data</th>		
-				<th></th>	
 			</tr>
 			<c:forEach items="${atividades}" var="a">
 				<tr>
@@ -51,40 +48,12 @@
 					<td>
 						<fmt:formatDate value="${a.tempo.time}" pattern="dd/MM/yyyy"/>
 					</td>
-					<td>
-					<button type="button" class="btn btn-danger btn-xs" data-bs-toggle="modal" data-bs-target="#excluirModal" onclick="codigoExcluir.value = ${a.codigo}">
-  						Excluir
-					</button>
-					</td>
 				</tr>
 			</c:forEach>
         </table>
 
   </div>
   <%@ include file="footer.jsp" %>
-  
-<!-- Modal -->
-<div class="modal fade" id="excluirModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Deseja realmente excluir o produto?
-      </div>
-      <div class="modal-footer">
-      <form action="produto" method="post">
-      	<input type="hidden" name="codigo" id="codigoExcluir">
-      	<input type="hidden" name="acao" value="excluir">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-danger">Excluir</button>
-      </form>
-      </div>
-    </div>
-  </div>
-</div>
 
 </body>
 

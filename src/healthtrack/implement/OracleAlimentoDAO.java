@@ -23,7 +23,7 @@ public class OracleAlimentoDAO implements AlimentoDAO {
 			conexao = ConnectionManager.getConnection();
 			String sql = "INSERT INTO T_HTK_ALIMENTO (CD_ALIMENTO, T_HTK_USER_CD_USUARIO, DS_TIPO, QT_CALORIA, QT_INGERIDA, DT_INGERIDO) VALUES (SQ_ALIMENTO.NEXTVAL, ?, ?, ?, ?, ?)";
 			stmt = conexao.prepareStatement(sql);
-			stmt.setInt(1, alimento.getChaveUser());
+			stmt.setInt(1, 1);
 			stmt.setString(2, alimento.getAlimento());
 			stmt.setDouble(3, alimento.getCaloria());
 			stmt.setInt(4, alimento.getQuantidade());
@@ -33,7 +33,6 @@ public class OracleAlimentoDAO implements AlimentoDAO {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new DBException("Erro ao cadastrar");
 		} finally {
 			try {
 				stmt.close();
@@ -62,7 +61,6 @@ public class OracleAlimentoDAO implements AlimentoDAO {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new DBException("Erro ao atualizar o alimento");
 		} finally {
 			try {
 				stmt.close();
@@ -87,7 +85,6 @@ public class OracleAlimentoDAO implements AlimentoDAO {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new DBException("Erro ao remover alimento");
 		} finally {
 			try {
 				stmt.close();

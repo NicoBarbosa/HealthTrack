@@ -50,7 +50,7 @@ public class AlimentoServlet extends HttpServlet {
 		}	
 	}
 
-	private void listar(HttpServletRequest request, HttpServletResponse response) {
+	private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Alimento> lista = dao.listar();
 		request.setAttribute("alimento", lista);
 		request.getRequestDispatcher("alimentos.jsp").forward(request, response);
@@ -76,16 +76,13 @@ public class AlimentoServlet extends HttpServlet {
 		}
 	}
 
-	private void cadastrar(HttpServletRequest request, HttpServletResponse response) {
+	private void cadastrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			String tipo = request.getParameter("tipo-ali");
 			double caloria = Double.parseDouble(request.getParameter("caloria-ali"));
 			int quantidade = Integer.parseInt(request.getParameter("quantidade-ali"));
-			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-			Calendar data = Calendar.getInstance();
-			data.setTime(format.parse(request.getParameter("data-ali")));
 			
-			Alimento alimento = new Alimento(0,0,tipo,caloria,quantidade,data);
+			Alimento alimento = new Alimento(0,0,tipo,caloria,quantidade, Calendar.getInstance());
 			
 			dao.cadastrar(alimento);
 			
@@ -98,7 +95,7 @@ public class AlimentoServlet extends HttpServlet {
 			e.printStackTrace();
 			request.setAttribute("erro",  "Por favor, valide os dados");
 		}
-		request.getRequestDispatcher("alimento.jsp").forward(request, response);
+		request.getRequestDispatcher("alimentos.jsp").forward(request, response);
 	}
 	
 	private void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
