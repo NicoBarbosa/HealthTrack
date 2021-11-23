@@ -58,7 +58,7 @@ public class PesoServlet {
 	
 	private void cadastrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			double vlPeso = Double.parseDouble(request.getParameter("vl-peso"));
+			double vlPeso = Double.parseDouble(request.getParameter("peso"));
 			
 			Peso peso = new Peso(0,0,vlPeso, Calendar.getInstance());
 			
@@ -73,13 +73,13 @@ public class PesoServlet {
 			e.printStackTrace();
 			request.setAttribute("erro",  "Por favor, valide os dados");
 		}
-		request.getRequestDispatcher("alimentos.jsp").forward(request, response);
+		request.getRequestDispatcher("peso.jsp").forward(request, response);
 	}
 	
 	private void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			int codigo = Integer.parseInt(request.getParameter("codigo"));
-			double vlPeso = Double.parseDouble(request.getParameter("vl-peso"));
+			double vlPeso = Double.parseDouble(request.getParameter("peso"));
 			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 			Calendar data = Calendar.getInstance();
 			data.setTime(format.parse(request.getParameter("data-ali")));
@@ -112,3 +112,4 @@ public class PesoServlet {
 	}
 
 }
+
