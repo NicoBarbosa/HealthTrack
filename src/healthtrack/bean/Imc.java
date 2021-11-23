@@ -5,7 +5,7 @@ import java.util.Calendar;
 public class Imc extends BaseFuncoes{
 	
 	/** 
-	 * Armazena o IMC que o usuário declarou
+	 * Armazena o IMC que o usuï¿½rio declarou
 	 * */
 	
 	private int codPeso;
@@ -19,6 +19,11 @@ public class Imc extends BaseFuncoes{
 		this.setTempo(data);
 	}
 	
+	public Imc(int codigo_usuario, Calendar data) {
+		this.setCodigo(codigo_usuario);
+		this.setTempo(data);
+	}
+
 	public int getCodPeso() {
 		return codPeso;
 	}
