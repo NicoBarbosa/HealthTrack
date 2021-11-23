@@ -95,7 +95,41 @@ public class OraclePesoDAO implements PesoDAO {
 			}
 			
 		}
-	
+	public Peso buscar(int cd_peso) {
+		Peso peso = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conexao = ConnectionManager.getConnection();
+			String sql = "SELECT * FROM T_HTK_PESO WHERE cd_peso = ?";
+			
+			stmt = conexao.prepareStatement(sql);
+			stmt.setInt(1, cd_peso);
+			rs = stmt.executeQuery();
+			
+			if(rs.next()) {
+				int codigo = rs.getInt("CD_PESO");
+				double valor = rs.getDouble("VL_PESO");
+				java.sql.Date data = rs.getDate("DT_MEDICAO");
+				Calendar dataMedicao = Calendar.getInstance();
+				dataMedicao.setTimeInMillis(data.getTime());
+				
+				peso = new Peso(codigo, valor, dataMedicao);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+				conexao.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return peso;
+	}
 	@Override
 	public List<Peso> listar() {
 		List<Peso> lista = new ArrayList<Peso>();

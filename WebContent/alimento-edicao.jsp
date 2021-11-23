@@ -32,7 +32,7 @@
 	        </div>
 	        <div class="col">
 	          <label for="data-ali">Data Atividade</label>
-	          <input id="data-ali" type="date" class="form-control" placeholder="Last name" value="${$alimento.data-ali }" aria-label="Data pesagem">
+	          <input id="data-ali" type="date" class="form-control" placeholder="Last name" value="${alimento.data-ali }" aria-label="Data pesagem">
 	        </div>
 	
 	        <div class="col-12 text-center mt-2">
