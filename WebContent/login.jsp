@@ -14,11 +14,11 @@
       <h1 class="h3 mb-3 fw-normal">Entrar</h1>
 
       <div class="form-floating">
-        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+        <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
         <label for="email">Email</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="senha" placeholder="Senha">
+        <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha">
         <label for="senha">Senha</label>
       </div>
 

@@ -5,7 +5,7 @@
 
   <main class="container mt-5">
 	<h1 class="h3 mb-3 fw-normal">Cadastrar</h1>
-	<form method="post">
+	<form method="post" action="usuario">
 	      <c:if test="${not empty msg })">
 	      	<div class="alert alert-success">${msg}</div>
 	      </c:if>
@@ -18,11 +18,11 @@
 		</div>
 		<div class="row">
 			<div class="col form-floating mb-3">
-			  <input type="email" class="form-control" id="email" placeholder="Insira seu email">
+			  <input type="email" class="form-control" name="email" id="email" placeholder="Insira seu email">
 			  <label for="email">Email</label>
 			</div>
 			<div class="col form-floating mb-3">
-			  <input type="password" class="form-control" id="senha" placeholder="Insira sua senha">
+			  <input type="password" class="form-control" name="senha" id="senha" placeholder="Insira sua senha">
 			  <label for="senha">Senha</label>
 			</div>
 		</div>

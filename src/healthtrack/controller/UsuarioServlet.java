@@ -67,9 +67,10 @@ public class UsuarioServlet extends HttpServlet {
 			usuario.setDtNascimento(dtNascimento);
 			usuario.setSexo(sexo);
 			usuario.setAltura(altura);
+			usuario.setDtInclusao(Calendar.getInstance());
 			
 			dao.cadastrar(usuario);
-			request.setAttribute("msg", "Usuário cadastrado");
+			request.setAttribute("msg", "Atividade fisica cadastrada");
 			
 		} catch(DBException db) {
 			db.printStackTrace();
@@ -78,7 +79,7 @@ public class UsuarioServlet extends HttpServlet {
 			e.printStackTrace();
 			request.setAttribute("erro",  "Por favor, valide os dados");
 		}
-		request.getRequestDispatcher("cadastro.jsp").forward(request, response);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 }
