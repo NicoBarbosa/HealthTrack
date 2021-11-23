@@ -11,25 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import healthtrack.bean.Peso;
-import healthtrack.dao.PesoDAO;
 import healthtrack.exception.DBException;
-import healthtrack.factory.DAOFactory;
+import healthtrack.implement.OraclePesoDAO;
 
-/**
- * Servlet implementation class UsuarioServlet
- */
 @WebServlet("/peso")
 public class PesoServlet {
-	private PesoDAO dao;
-	@Override
-    public void init() throws ServletException {
-    	super.init();
-    	dao = DAOFactory.getPesoDAO();
-    }
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-    @Override
+	OraclePesoDAO dao = new OraclePesoDAO();
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String acao = request.getParameter("acao");
 		

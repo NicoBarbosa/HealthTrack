@@ -18,11 +18,11 @@
 	    <div class="alert alert-danger">${erro}</div>
     </c:if>
 
-    <form method="post" action="peso.jsp">
+    <form method="post" action="peso">
     <input type="hidden" value="cadastrar" name="acao">
       <div class="row">
         <div class="col">
-          <input type="number" class="form-control" placeholder="Peso" aria-label="Peso" step="0.1" min=0>
+          <input type="number" name="peso" class="form-control" placeholder="Peso" aria-label="Peso" step="0.1" min=0>
         </div>
         <div class="col">
           <input type="date" class="form-control" placeholder="Last name" aria-label="Data pesagem">
