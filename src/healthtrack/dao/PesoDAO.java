@@ -9,5 +9,6 @@ public interface PesoDAO {
 	void cadastrar(Peso peso) throws DBException;
 	void atualizar(Peso peso) throws DBException;
 	void remover(int codigo) throws DBException;
+	Alimento buscar(int cd_alimento);
 	List<Peso> listar();
 }
