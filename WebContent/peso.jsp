@@ -54,12 +54,9 @@
       <label>Cadastrar novo registro</label>
     </div>
 
-<<<<<<< HEAD
-    <form method="post" action="peso">
+
+   <form method="post" action="peso">
     <input type="hidden" value="cadastrar" name="acao">
-=======
-    <form method="post" action="peso.jsp">
->>>>>>> 00778f5dc5cc67ca25b1053570a40df8e303a960
       <div class="row">
         <div class="col">
           <input type="number" name="peso" class="form-control" placeholder="Peso" aria-label="Peso" step="0.1" min=0>
