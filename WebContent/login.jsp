@@ -4,11 +4,11 @@
   <%@ include file="menu.jsp" %>
 
   <main class="form-signin">
-    <form>
-    	<c:if test="${not empty msg })">
+    <form method="post" action="login">
+    	<c:if test="${not empty msg }">
 	      	<div class="alert alert-success">${msg}</div>
 	      </c:if>
-	      <c:if test="${not empty erro })">
+	      <c:if test="${not empty erro }">
 	      	<div class="alert alert-danger">${erro}</div>
 	      </c:if>
       <h1 class="h3 mb-3 fw-normal">Entrar</h1>
