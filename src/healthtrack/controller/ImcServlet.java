@@ -19,7 +19,7 @@ import healthtrack.factory.DAOFactory;
 /**
  * Servlet implementation class UsuarioServlet
  */
-@WebServlet("/alimento")
+@WebServlet("/imc")
 public class ImcServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     

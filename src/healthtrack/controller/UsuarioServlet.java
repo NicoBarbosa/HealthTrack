@@ -3,7 +3,6 @@ package healthtrack.controller;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,7 +39,7 @@ public class UsuarioServlet extends HttpServlet {
 		request.getRequestDispatcher("usuarios.jsp").forward(request, response);*/
 		
 		int codigo = Integer.parseInt(request.getParameter("cd_usuario"));
-		Usuario usuario = dao.buscar(codigo);
+		dao.buscar(codigo);
 		request.getRequestDispatcher("perfil.jsp").forward(request, response);
 	}
 
